@@ -61,6 +61,7 @@ public class Menu  implements MenuInterface{
         int animalClass = scanner.nextInt();
         scanner.nextLine();
 
+//        if (counter.addCount(name, dOB, skills) = true);
         Animal animal;
         switch (animalClass) {
             case 1 -> animal = new Dog(name, dOB, skills, "house");
