@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Database {
+    public int lines = 0;
     private final List<Animal> animals;
     private static final String FILE_PATH = "src/database.txt";
 
@@ -69,6 +70,7 @@ public class Database {
                         }
                     }
                     animals.add(animal);
+                    this.lines++;
                 } else {
                     System.out.println("Некорректные данные в файле: " + line);
                 }
@@ -111,5 +113,19 @@ public class Database {
         } catch (IOException e) {
             System.out.println("Ошибка при сохранении базы данных: " + e.getMessage());
         }
+    }
+
+//    public static long getLineCountByIncrement(String fileName) throws IOException {
+//        var lines = 0L;
+//        try (var reader = new BufferedReader(new FileReader(fileName))) {
+//            while (reader.readLine() != null) {
+//                lines++;
+//            }
+//            return lines;
+//        }
+//    }
+
+    public int getLines() {
+        return lines;
     }
 }

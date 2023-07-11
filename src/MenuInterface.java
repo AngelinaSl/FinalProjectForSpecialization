@@ -1,3 +1,3 @@
 public interface MenuInterface {
-        void showMenu();
+        void showMenu(Counter counter);
 }

@@ -3,6 +3,7 @@ import Animals.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class Menu  implements MenuInterface{
     private final Database database;
     private final Scanner scanner;
@@ -11,7 +12,8 @@ public class Menu  implements MenuInterface{
         this.database = database;
         scanner = new Scanner(System.in);
     }
-    public void showMenu() {
+    public void showMenu(Counter counter) {
+
         while (true) {
             try {
                 System.out.println("Меню:");
@@ -25,7 +27,7 @@ public class Menu  implements MenuInterface{
                 scanner.nextLine();
 
                 switch (choice) {
-                    case 1 -> addNewAnimal();
+                    case 1 -> addNewAnimal(counter);
                     case 2 -> Database.showAllAnimals();
                     case 3 -> menuShowAnimalCommands();
                     case 4 -> menuAddNewCommand();
@@ -43,7 +45,7 @@ public class Menu  implements MenuInterface{
     }
 
 
-    private void addNewAnimal() {
+    private void addNewAnimal(Counter counter) {
         System.out.println("Введите имя животного:");
         String name = scanner.nextLine();
         System.out.println("Введите дату рождения в формате гггг.мм.дд:");
@@ -61,7 +63,7 @@ public class Menu  implements MenuInterface{
         int animalClass = scanner.nextInt();
         scanner.nextLine();
 
-//        if (counter.addCount(name, dOB, skills) = true);
+        if (counter.completedFields(name, dOB, skills) == true){
         Animal animal;
         switch (animalClass) {
             case 1 -> animal = new Dog(name, dOB, skills, "house");
@@ -77,7 +79,11 @@ public class Menu  implements MenuInterface{
         }
 
         database.addAnimal(animal);
-        System.out.println("Животное успешно добавлено в базу данных.");
+        int n = 0;
+        n = counter.setCount(counter.addCount(database)) + 1;
+        System.out.println("Животное успешно добавлено в базу данных. Count = " + n);
+        }
+        else System.out.println("Недостаточно данных.");
     }
 
     private void menuShowAnimalCommands() {
@@ -92,6 +98,5 @@ public class Menu  implements MenuInterface{
         System.out.println("Введите новые команды через запятую:");
         String command = scanner.nextLine();
         database.addNewCommand(name,  command);
-//        System.out.println("Команда успешно добавлена для животного.");
     }
 }
