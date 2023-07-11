@@ -18,7 +18,6 @@ public class Counter {
         this.tmp = database.getLines();
 //        System.out.println("Count = " + (count++));
         return this.tmp;
-
     }
 
     public boolean completedFields(String name, String dOB, String skills){

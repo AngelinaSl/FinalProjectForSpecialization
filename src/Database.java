@@ -8,6 +8,7 @@ public class Database {
     private final List<Animal> animals;
     private static final String FILE_PATH = "src/database.txt";
 
+
     public Database() {
         animals = new ArrayList<>();
         loadingDatabase();

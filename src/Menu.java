@@ -92,6 +92,7 @@ public class Menu  implements MenuInterface{
         database.showCommands(name);
     }
 
+
     private void menuAddNewCommand() {
         System.out.println("Введите имя животного:");
         String name = scanner.nextLine();
