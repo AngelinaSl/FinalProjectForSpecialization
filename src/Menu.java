@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-public class Menu  implements MenuInterface{
+public class Menu implements MenuInterface {
     private final Database database;
     private final Scanner scanner;
 
@@ -12,6 +12,7 @@ public class Menu  implements MenuInterface{
         this.database = database;
         scanner = new Scanner(System.in);
     }
+
     public void showMenu(Counter counter) {
 
         while (true) {
@@ -44,7 +45,6 @@ public class Menu  implements MenuInterface{
         }
     }
 
-
     private void addNewAnimal(Counter counter) {
         System.out.println("Введите имя животного:");
         String name = scanner.nextLine();
@@ -63,27 +63,26 @@ public class Menu  implements MenuInterface{
         int animalClass = scanner.nextInt();
         scanner.nextLine();
 
-        if (counter.completedFields(name, dOB, skills) == true){
-        Animal animal;
-        switch (animalClass) {
-            case 1 -> animal = new Dog(name, dOB, skills, "house");
-            case 2 -> animal = new Cat(name, dOB, skills, "house");
-            case 3 -> animal = new Hamster(name, dOB, skills, "house");
-            case 4 -> animal = new Donkey(name, dOB, skills, "stable");
-            case 5 -> animal = new Horse(name, dOB, skills, "stable");
-            case 6 -> animal = new Camel(name, dOB, skills, "stable");
-            default -> {
-                System.out.println("Такого животного нет в списке.");
-                return;
+        if (counter.completedFields(name, dOB, skills) == true) {
+            Animal animal;
+            switch (animalClass) {
+                case 1 -> animal = new Dog(name, dOB, skills, "house");
+                case 2 -> animal = new Cat(name, dOB, skills, "house");
+                case 3 -> animal = new Hamster(name, dOB, skills, "house");
+                case 4 -> animal = new Donkey(name, dOB, skills, "stable");
+                case 5 -> animal = new Horse(name, dOB, skills, "stable");
+                case 6 -> animal = new Camel(name, dOB, skills, "stable");
+                default -> {
+                    System.out.println("Такого животного нет в списке.");
+                    return;
+                }
             }
-        }
 
-        database.addAnimal(animal);
-        int n = 0;
-        n = counter.setCount(counter.addCount(database)) + 1;
-        System.out.println("Животное успешно добавлено в базу данных. Count = " + n);
-        }
-        else System.out.println("Недостаточно данных.");
+            database.addAnimal(animal);
+            int n = 0;
+            n = counter.setCount(counter.addCount(database)) + 1;
+            System.out.println("Животное успешно добавлено в базу данных." + n);
+        } else System.out.println("Недостаточно данных.");
     }
 
     private void menuShowAnimalCommands() {
@@ -92,12 +91,11 @@ public class Menu  implements MenuInterface{
         database.showCommands(name);
     }
 
-
     private void menuAddNewCommand() {
         System.out.println("Введите имя животного:");
         String name = scanner.nextLine();
         System.out.println("Введите новые команды через запятую:");
         String command = scanner.nextLine();
-        database.addNewCommand(name,  command);
+        database.addNewCommand(name, command);
     }
 }

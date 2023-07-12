@@ -62,9 +62,9 @@ public class Database {
                         case "Dog" -> animal = new Dog(name, dOB, skills, "house");
                         case "Cat" -> animal = new Cat(name, dOB, skills, "house");
                         case "Hamster" -> animal = new Hamster(name, dOB, skills, "house");
-                        case "Donkey" -> animal = new Donkey(name, dOB, skills,  "stable");
-                        case "Horse" -> animal = new Horse(name, dOB, skills,  "stable");
-                        case "Camel" -> animal = new Camel(name, dOB, skills,  "stable");
+                        case "Donkey" -> animal = new Donkey(name, dOB, skills, "stable");
+                        case "Horse" -> animal = new Horse(name, dOB, skills, "stable");
+                        case "Camel" -> animal = new Camel(name, dOB, skills, "stable");
                         default -> {
                             System.out.println("Неизвестный класс животного: " + className);
                             continue;
@@ -116,17 +116,8 @@ public class Database {
         }
     }
 
-//    public static long getLineCountByIncrement(String fileName) throws IOException {
-//        var lines = 0L;
-//        try (var reader = new BufferedReader(new FileReader(fileName))) {
-//            while (reader.readLine() != null) {
-//                lines++;
-//            }
-//            return lines;
-//        }
-//    }
-
     public int getLines() {
         return lines;
     }
 }
+

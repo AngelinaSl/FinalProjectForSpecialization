@@ -35,9 +35,10 @@ public abstract class Animal {
     public void setSkills(String skills) {
         this.skills = skills;
     }
-    public void learnCommands(String command){
-    }
-    public void showCommand(){
+
+    public void learnCommands(String command) {
     }
 
+    public void showCommand() {
+    }
 }

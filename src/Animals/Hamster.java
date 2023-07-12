@@ -1,6 +1,6 @@
 package Animals;
 
-public class Hamster extends Pet{
+public class Hamster extends Pet {
     public Hamster(String name, String dOB, String skills, String home) {
         super(name, dOB, skills, home);
     }
@@ -9,6 +9,7 @@ public class Hamster extends Pet{
     public void showCommand() {
         System.out.println("Хомяк " + getName() + " умеет: " + getSkills());
     }
+
     @Override
     public void learnCommands(String command) {
         String newSkills = getSkills() + ", " + command;
