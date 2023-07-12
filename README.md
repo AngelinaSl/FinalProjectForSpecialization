@@ -5,5 +5,5 @@
 
   
   ![Diagram](https://github.com/AngelinaSl/FinalProjectForSpecialization/blob/master/finalyProject_%20diagramma.drawio.png)
-* Ответ на задания 7-12: [task for database](https://github.com/AngelinaSl/FinalProjectForSpecialization/blob/master/Final_project_db.sql)
+* Ответ на задания 7-12: [task for database](https://github.com/AngelinaSl/FinalProjectForSpecialization/blob/master/Final_project_db.sql). Вывод таблиц заданий 10-12: [tables for database](https://github.com/AngelinaSl/FinalProjectForSpecialization/tree/master/Table)
 * Ответ на задания 13-15: [app](https://github.com/AngelinaSl/FinalProjectForSpecialization/tree/master/src)
